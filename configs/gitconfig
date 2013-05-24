@@ -1,0 +1,11 @@
+[user]
+	name = Dylan Griffith
+	email = dyl.griffith@gmail.com
+[core]
+	excludesfile = /Users/dylan/.gitignore_global
+[alias]
+	ci = commit
+	co = checkout
+	st = status -s
+	cl = clone
+	br = branch
