@@ -1,11 +1,23 @@
 [user]
-	name = Dylan Griffith
-	email = dyl.griffith@gmail.com
+    name = Dylan Griffith
+    email = dgriffith@groupon.com
 [core]
-	excludesfile = /Users/dylan/.gitignore_global
+    editor = /usr/local/bin/vim
+	excludesfile = /Users/dgriffith/.gitignore_global
+[color]
+    branch = auto
+    diff = auto
+    interactive = auto
+    status = auto
+    ui = auto
 [alias]
-	ci = commit
-	co = checkout
-	st = status -s
-	cl = clone
-	br = branch
+    st = status
+    ci = commit
+    co = checkout
+    br = branch
+    df = diff
+    dc = diff --cached
+    fall = fetch --all
+    cim = commit -m
+[push]
+	default = simple

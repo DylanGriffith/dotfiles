@@ -340,7 +340,7 @@ endif
 let g:neocomplcache_keyword_patterns['default'] = '\h\w*' 
 
 " AutoComplPop like behavior. 
-let g:neocomplcache_enable_auto_select = 1 
+"let g:neocomplcache_enable_auto_select = 1 
 " Enable omni completion. 
 autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS 
 autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags 
@@ -364,6 +364,11 @@ set tags+=~/.vim/tags/qt5
 set tags+=~/.vim/tags/xerces
 " build tags of your own project with Ctrl-F12
 map <C-F12> :!ctags -R --sort=yes --c++-kinds=+pl --fields=+iaS --extra=+q .<CR>
+
+map <C-j> <C-w><C-j>
+map <C-k> <C-w><C-k>
+map <C-h> <C-w><C-h>
+map <C-l> <C-w><C-l>
 
 " OmniCppComplete
 let OmniCpp_NamespaceSearch = 1
