@@ -3,7 +3,7 @@
     email = dgriffith@groupon.com
 [core]
     editor = /usr/local/bin/vim
-	excludesfile = ~/.gitignore_global
+    excludesfile = ~/.gitignore_global
 [color]
     branch = auto
     diff = auto
@@ -19,7 +19,10 @@
     dc = diff --cached
     fall = fetch --all
     cim = commit -m
+    tree = log --graph --oneline --decorate --color --all
+    tr = log --graph --oneline --decorate --color
+    ln = log --pretty=format:'%Cblue%h %Cred* %C(yellow)%s'
 [push]
-	default = simple
+    default = current
 [credential]
-	helper = osxkeychain
+    helper = osxkeychain
