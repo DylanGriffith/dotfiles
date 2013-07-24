@@ -5,8 +5,6 @@ fpath=(
   /usr/local/share/zsh/site-functions
 )
 
-source "$HOME/.hashrc"
-
 # color term
 export CLICOLOR=1
 export LSCOLORS=Dxfxcxdxbxegedabadacad
@@ -68,9 +66,6 @@ if [ -z "$TMUX" ]; then
   bindkey -M viins "^Z" fg-widget
 fi
 
-# prompt
-PROMPT='%{$fg_bold[green]%}%n@%m%{$reset_color%}:%{$fg_bold[cyan]%}%~%{$reset_color%}$(git_prompt_info "(%s)")%# '
-
 # show non-success exit code in right prompt
 RPROMPT="%(?..{%{$fg[red]%}%?%{$reset_color%}})"
 
@@ -100,16 +95,22 @@ alias md='mkdir -p'
 alias rd='rmdir'
 alias cd..='cd ..'
 alias ..='cd ..'
-alias spec='spec -c'
-alias heroku='nocorrect heroku'
 alias groutes='rake routes | grep $@'
+
+# enable color support of ls and also add handy aliases
+if [ -x /usr/bin/dircolors ]; then
+    test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
+    alias ls='ls --color=auto'
+    #alias dir='dir --color=auto'
+    #alias vdir='vdir --color=auto'
+
+    alias grep='grep --color=auto'
+    alias fgrep='fgrep --color=auto'
+    alias egrep='egrep --color=auto'
+fi
 
 # set cd autocompletion to commonly visited directories
 cdpath=(~ ~/src $DEV_DIR $HASHROCKET_DIR)
-
-# rvm-install added line:
-if [[ -s "$HOME/.rvm/scripts/rvm" ]] ; then source "$HOME/.rvm/scripts/rvm" ; fi
-PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 
 cuke() {
   local file="$1"
@@ -127,3 +128,27 @@ zrcl="$HOME/.zshrc.local"
 
 # remove duplicates in $PATH
 typeset -aU path
+
+# Colored prompt
+autoload -U colors && colors
+PS1="%{$fg[red]%}%n%{$reset_color%}@%{$fg[blue]%}%m %{$fg[yellow]%}%~ %{$reset_color%}% $
+"
+
+# Copy tmux clipboard
+~/.tmux_clip.sh &
+
+# Some git stuff
+alias gprom="git pull --rebase origin master"
+alias grbc="git rebase --continue"
+
+# Some RVM stuff
+PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+export RUBY_HEAP_MIN_SLOTS=500000 
+export RUBY_HEAP_SLOTS_INCREMENT=250000
+export RUBY_HEAP_SLOTS_GROWTH_FACTOR=1
+export RUBY_GC_MALLOC_LIMIT=50000000
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
+
+# Some aliases I like
+alias ackil="ack --ignore-dir=log"
+alias be="bundle exec"

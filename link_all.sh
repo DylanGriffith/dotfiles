@@ -11,3 +11,4 @@ ln -s $PWD/configs/rspec ~/.rspec
 ln -s $PWD/configs/rvmrc ~/.rvmrc
 ln -s $PWD/configs/tmux.conf ~/.tmux.conf
 ln -s $PWD/configs/zshrc ~/.zshrc
+ln -s $PWD/tmux_clip.sh ~/.tmux_clip.sh
