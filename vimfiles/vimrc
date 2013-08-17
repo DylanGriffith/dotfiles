@@ -370,6 +370,11 @@ map <C-k> <C-w><C-k>
 map <C-h> <C-w><C-h>
 map <C-l> <C-w><C-l>
 
+" Open current file in texeditor
+nnoremap <f4> :!open -t %<cr><cr>
+" Reveal current file in finder
+nnoremap <f5> :!open -R %<cr><cr>
+
 " OmniCppComplete
 let OmniCpp_NamespaceSearch = 1
 let OmniCpp_GlobalScopeSearch = 1

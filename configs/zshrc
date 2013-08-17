@@ -142,7 +142,7 @@ alias gprom="git pull --rebase origin master"
 alias grbc="git rebase --continue"
 
 # Some RVM stuff
-PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+PATH=/usr/local/bin:$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 export RUBY_HEAP_MIN_SLOTS=500000 
 export RUBY_HEAP_SLOTS_INCREMENT=250000
 export RUBY_HEAP_SLOTS_GROWTH_FACTOR=1
