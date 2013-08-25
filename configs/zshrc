@@ -131,15 +131,10 @@ typeset -aU path
 
 # Colored prompt
 autoload -U colors && colors
-PS1="%{$fg[red]%}%n%{$reset_color%}@%{$fg[blue]%}%m %{$fg[yellow]%}%~ %{$reset_color%}% $
-"
+PS1="%{$fg[red]%}%n%{$reset_color%} %{$fg[yellow]%}%~ %{$reset_color%}% $ "
 
 # Copy tmux clipboard
 ~/.tmux_clip.sh &
-
-# Some git stuff
-alias gprom="git pull --rebase origin master"
-alias grbc="git rebase --continue"
 
 # Some RVM stuff
 PATH=/usr/local/bin:$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
@@ -148,6 +143,11 @@ export RUBY_HEAP_SLOTS_INCREMENT=250000
 export RUBY_HEAP_SLOTS_GROWTH_FACTOR=1
 export RUBY_GC_MALLOC_LIMIT=50000000
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
+
+# Some git aliases
+alias gprom="git pull --rebase origin master"
+alias grbc="git rebase --continue"
+alias gbrmd="git branch --merged | grep -v \* | xargs git branch -D"
 
 # Some aliases I like
 alias ackil="ack --ignore-dir=log"
