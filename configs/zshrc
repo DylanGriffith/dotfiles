@@ -137,7 +137,7 @@ PS1="%{$fg[red]%}%n%{$reset_color%} %{$fg[yellow]%}%~ %{$reset_color%}% $ "
 ~/.tmux_clip.sh &
 
 # Some RVM stuff
-PATH=/usr/local/bin:$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+PATH=/usr/local/bin:$PATH:$HOME/.rvm/bin:$HOME/bin # Add RVM to PATH for scripting
 export RUBY_HEAP_MIN_SLOTS=500000 
 export RUBY_HEAP_SLOTS_INCREMENT=250000
 export RUBY_HEAP_SLOTS_GROWTH_FACTOR=1
@@ -152,3 +152,26 @@ alias gbrmd="git branch --merged | grep -v \* | xargs git branch -D"
 # Some aliases I like
 alias ackil="ack --ignore-dir=log"
 alias be="bundle exec"
+alias tar=gtar
+
+function pkg {
+        PKGNAME=$(pkgver $1)
+        ln -s $1 $PKGNAME
+        gtar -czhvf $PKGNAME.tar.gz $PKGNAME
+        echo "Done. Now run:\npkgup $PKGNAME.tar.gz"
+}
+
+# need to be on the office network or VPN for this to work
+# in case of usage of the http proxy thru a ssh tunnel run (change the port if needed)
+#  export http_proxy="http://localhost:3132"
+function pkgup {
+        curl --upload-file $1 http://config.snc1/package/
+}
+
+function pkgver {
+        echo "$1-$(date +%Y.%m.%d_%H.%M)"
+}
+
+function gendate {
+        date +%Y.%m.%d_%H.%M
+}

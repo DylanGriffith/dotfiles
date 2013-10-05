@@ -114,7 +114,7 @@ if ! shopt -oq posix; then
   fi
 fi
 
-PATH=/usr/local/bin:$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+export PATH=/usr/local/bin:$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 export RUBY_HEAP_MIN_SLOTS=500000 
 export RUBY_HEAP_SLOTS_INCREMENT=250000
 export RUBY_HEAP_SLOTS_GROWTH_FACTOR=1
@@ -129,3 +129,32 @@ alias be="bundle exec"
 if [ -f  /usr/local/etc/bash_completion.d/git-completion.bash ]; then
       . /usr/local/etc/bash_completion.d/git-completion.bash
 fi
+
+function pkg {
+    PKGNAME=$(pkgver $1)
+    ln -s $1 $PKGNAME
+    tar -czhvf $PKGNAME.tar.gz $PKGNAME
+    echo "Done. Now run:\npkgup $PKGNAME.tar.gz"
+}
+
+# need to be on the office network or VPN for this to work
+# in case of usage of the http proxy thru a ssh tunnel run (change the port if needed)
+#  export http_proxy="http://localhost:3132"
+function pkgup {
+    curl --upload-file $1 http://config.snc1/package/
+}
+
+function pkgver {
+    echo "$1-$(date +%Y.%m.%d_%H.%M)"
+}
+
+function gendate {
+    date +%Y.%m.%d_%H.%M
+}
+
+fpath=(
+  $fpath
+  ~/.rvm/scripts/zsh/Completion
+  ~/.zsh/functions
+  /usr/local/share/zsh/site-functions
+)
