@@ -130,8 +130,12 @@ zrcl="$HOME/.zshrc.local"
 typeset -aU path
 
 # Colored prompt
+git_prompt() {
+  ref=$(git symbolic-ref HEAD | cut -d'/' -f3)
+  echo $ref
+}
 autoload -U colors && colors
-PS1="%{$fg[red]%}%n%{$reset_color%} %{$fg[yellow]%}%~ %{$reset_color%}% $ "
+PS1="%{$fg[red]%}%n %{$fg[yellow]%}%~ %{$fg[blue]%}($(git_prompt)%) %{$reset_color%} $ "
 
 # Copy tmux clipboard
 ~/.tmux_clip.sh &
