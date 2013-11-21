@@ -129,13 +129,19 @@ zrcl="$HOME/.zshrc.local"
 # remove duplicates in $PATH
 typeset -aU path
 
-# Colored prompt
-git_prompt() {
-  ref=$(git symbolic-ref HEAD | cut -d'/' -f3)
-  echo $ref
+# Prompt prompt stuff!!!
+# get the name of the branch we are on
+git_prompt_info() {
+    git branch | awk '/^\*/ { print $2 }'
 }
-autoload -U colors && colors
-PS1="%{$fg[red]%}%n %{$fg[yellow]%}%~ %{$fg[blue]%}($(git_prompt)%) %{$reset_color%} $ "
+get_git_dirty() {
+    git diff --quiet || echo '*'
+}
+autoload -U colors
+colors
+setopt prompt_subst
+PROMPT='%{$fg[blue]%}%c %{$fg_bold[red]%}$(git_prompt_info)$(get_git_dirty)%{$fg[blue]%} $ %{$reset_color%}'
+RPROMPT='%{$fg[green]%}%1(j.%j.)'
 
 # Copy tmux clipboard
 ~/.tmux_clip.sh &
