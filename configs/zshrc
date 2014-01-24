@@ -132,10 +132,10 @@ typeset -aU path
 # Prompt prompt stuff!!!
 # get the name of the branch we are on
 git_prompt_info() {
-    git branch | awk '/^\*/ { print $2 }'
+    git branch 2>/dev/null | awk '/^\*/ { print $2 }'
 }
 get_git_dirty() {
-    git diff --quiet || echo '*'
+    git diff --quiet 2>/dev/null || echo '*'
 }
 autoload -U colors
 colors
@@ -184,3 +184,19 @@ function pkgver {
 function gendate {
         date +%Y.%m.%d_%H.%M
 }
+
+
+## BEGIN NUPIC STUFF ##
+# Installation path
+export NTA=$HOME/nta/eng
+# Target source/repo path. Defaults to $PWD
+export NUPIC=/Users/dgriffith/code/nupic
+# Convenience variable for temporary build files
+export BUILDDIR=/tmp/ntabuild
+# Number of jobs to run in parallel (optional)
+export MK_JOBS=3
+
+# Set up the rest of the necessary env variables. Must be done after
+# setting $NTA.
+source $NUPIC/env.sh
+## END NUPIC STUFF ##
