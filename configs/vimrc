@@ -25,6 +25,7 @@ Bundle 'mileszs/ack.vim'
 Bundle 'altercation/vim-colors-solarized'
 Bundle 'scrooloose/nerdtree'
 Bundle 'kien/ctrlp.vim'
+Bundle 'Shougo/neocomplcache.vim'
 
 filetype plugin indent on     " required!
 "
