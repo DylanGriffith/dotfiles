@@ -1,6 +1,38 @@
 "This must be first, because it changes other options as a side effect.
 set nocompatible
+filetype off                  " required!
 
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
+
+" let Vundle manage Vundle
+" required! 
+Bundle 'gmarik/vundle'
+
+" My bundles here:
+"
+" original repos on GitHub
+Bundle 'tpope/vim-fugitive'
+Bundle 'Lokaltog/vim-easymotion'
+Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
+Bundle 'kien/ctrlp.vim'
+Bundle 'altercation/vim-colors-solarized'
+Bundle 'scrooloose/nerdtree'
+Bundle 'jlanzarotta/bufexplorer'
+Bundle 'mileszs/ack.vim'
+Bundle 'gregsexton/MatchTag'
+Bundle 'tpope/vim-markdown'
+Bundle 'tpope/vim-haml'
+Bundle 'tpope/vim-rake'
+Bundle 'tpope/vim-cucumber'
+Bundle 'tsaleh/vim-matchit'
+Bundle 'Shougo/neocomplcache.vim'
+Bundle 'scrooloose/syntastic'
+Bundle 'kchmck/vim-coffee-script'
+Bundle 'neowit/vim-force.com'
+Bundle 'vim-ruby/vim-ruby'
+
+filetype plugin indent on     " required!
 "allow backspacing over everything in insert mode
 set backspace=indent,eol,start
 
@@ -51,10 +83,6 @@ set formatoptions-=o "dont continue comments when pushing o/O
 set scrolloff=3
 set sidescrolloff=7
 set sidescroll=1
-
-"load ftplugins and indent files
-filetype plugin on
-filetype indent on
 
 "turn on syntax highlighting
 syntax on
