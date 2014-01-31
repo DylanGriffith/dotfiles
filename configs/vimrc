@@ -26,6 +26,7 @@ Bundle 'altercation/vim-colors-solarized'
 Bundle 'scrooloose/nerdtree'
 Bundle 'kien/ctrlp.vim'
 Bundle 'Shougo/neocomplcache.vim'
+Bundle 'tpope/vim-haml'
 
 filetype plugin indent on     " required!
 "
@@ -129,15 +130,6 @@ set statusline+=%m
 set statusline+=%*
 
 set statusline+=%{fugitive#statusline()}
-
-"display a warning if &et is wrong, or we have mixed-indenting
-set statusline+=%#error#
-set statusline+=%{StatuslineTabWarning()}
-set statusline+=%*
-
-set statusline+=%{StatuslineTrailingSpaceWarning()}
-
-set statusline+=%{StatuslineLongLineWarning()}
 
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
@@ -244,8 +236,10 @@ let OmniCpp_DefaultNamespaces = ["std", "_GLIBCXX_STD"]
 " automatically open and close the popup menu / preview window
 au CursorMovedI,InsertLeave * if pumvisible() == 0|silent! pclose|endif
 set completeopt=menuone,menu,longest,preview
-autocmd FileType ruby setlocal softtabstop=2
-autocmd FileType ruby setlocal shiftwidth=2
+
+" file types with 2 space indentation
+au FileType ruby,yaml,haml,coffee,cucumber setlocal softtabstop=2
+au FileType ruby,yaml,haml,coffee,cucumber setlocal shiftwidth=2
 
 " Make vim clipboard go to OSX clipboard
 set clipboard=unnamed
