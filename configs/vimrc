@@ -150,8 +150,6 @@ nnoremap <f2> :NERDTreeToggle<cr>
 nnoremap <f3> :TagbarToggle<cr>
 
 "make <c-l> clear the highlight as well as redraw
-nnoremap <C-L> :nohls<CR><C-L>
-inoremap <C-L> <C-O>:nohls<CR>
 
 "map Q to something useful
 noremap Q gq
@@ -243,3 +241,6 @@ au FileType ruby,yaml,haml,coffee,cucumber setlocal shiftwidth=2
 
 " Make vim clipboard go to OSX clipboard
 set clipboard=unnamed
+
+nnoremap <C-Q> :nohls<CR><C-L>
+inoremap <C-Q> <C-O>:nohls<CR>
