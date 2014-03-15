@@ -147,7 +147,8 @@ PROMPT='%{$fg[blue]%}%c %{$fg_bold[red]%}$(git_prompt_info)$(get_git_dirty)%{$fg
 
 # Some RVM stuff
 PATH=/usr/local/bin:$PATH:$HOME/.rvm/bin:$HOME/bin # Add RVM to PATH for scripting
-export RUBY_HEAP_MIN_SLOTS=500000 
+export RUBY_GC_HEAP_INIT_SLOTS=500000
+export RUBY_HEAP_MIN_SLOTS=500000
 export RUBY_HEAP_SLOTS_INCREMENT=250000
 export RUBY_HEAP_SLOTS_GROWTH_FACTOR=1
 export RUBY_GC_MALLOC_LIMIT=50000000
@@ -159,7 +160,7 @@ alias grbc="git rebase --continue"
 alias gbrmd="git branch --merged | grep -v \* | xargs git branch -D"
 
 # Some aliases I like
-alias ackil="ack --ignore-dir=log"
+alias ackil="ack --ackrc=~/.ackrc"
 alias be="bundle exec"
 alias tar=gtar
 
@@ -200,3 +201,9 @@ export MK_JOBS=3
 # setting $NTA.
 source $NUPIC/env.sh
 ## END NUPIC STUFF ##
+
+# VI Bindings in Shell
+set -o vi
+bindkey "^R" history-incremental-search-backward
+
+source ~/.grpnzshrc
