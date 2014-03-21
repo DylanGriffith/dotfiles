@@ -96,6 +96,7 @@ alias rd='rmdir'
 alias cd..='cd ..'
 alias ..='cd ..'
 alias groutes='rake routes | grep $@'
+alias mvim='/Applications/MacVim.app/Contents/MacOS/vim'
 
 # enable color support of ls and also add handy aliases
 if [ -x /usr/bin/dircolors ]; then
@@ -146,13 +147,11 @@ PROMPT='%{$fg[blue]%}%c %{$fg_bold[red]%}$(git_prompt_info)$(get_git_dirty)%{$fg
 ~/.tmux_clip.sh &
 
 # Some RVM stuff
-PATH=/usr/local/bin:$PATH:$HOME/.rvm/bin:$HOME/bin # Add RVM to PATH for scripting
 export RUBY_GC_HEAP_INIT_SLOTS=500000
 export RUBY_HEAP_MIN_SLOTS=500000
 export RUBY_HEAP_SLOTS_INCREMENT=250000
 export RUBY_HEAP_SLOTS_GROWTH_FACTOR=1
 export RUBY_GC_MALLOC_LIMIT=50000000
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
 
 # Some git aliases
 alias gprom="git pull --rebase origin master"
@@ -160,7 +159,7 @@ alias grbc="git rebase --continue"
 alias gbrmd="git branch --merged | grep -v \* | xargs git branch -D"
 
 # Some aliases I like
-alias ackil="ack --ackrc=~/.ackrc"
+alias ackil="ack --ackrc=$HOME/.ackrc"
 alias be="bundle exec"
 alias tar=gtar
 
@@ -186,7 +185,6 @@ function gendate {
         date +%Y.%m.%d_%H.%M
 }
 
-
 ## BEGIN NUPIC STUFF ##
 # Installation path
 export NTA=$HOME/nta/eng
@@ -207,3 +205,6 @@ set -o vi
 bindkey "^R" history-incremental-search-backward
 
 source ~/.grpnzshrc
+
+export PATH=/usr/local/bin:$PATH
+PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting

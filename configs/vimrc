@@ -27,6 +27,7 @@ Bundle 'scrooloose/nerdtree'
 Bundle 'kien/ctrlp.vim'
 Bundle 'Shougo/neocomplcache.vim'
 Bundle 'tpope/vim-haml'
+Bundle 'tpope/vim-endwise'
 
 filetype plugin indent on     " required!
 "
