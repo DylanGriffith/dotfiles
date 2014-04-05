@@ -148,7 +148,6 @@ PROMPT='%{$fg[blue]%}%c %{$fg_bold[red]%}$(git_prompt_info)$(get_git_dirty)%{$fg
 
 # Some RVM stuff
 export RUBY_GC_HEAP_INIT_SLOTS=500000
-export RUBY_HEAP_MIN_SLOTS=500000
 export RUBY_HEAP_SLOTS_INCREMENT=250000
 export RUBY_HEAP_SLOTS_GROWTH_FACTOR=1
 export RUBY_GC_MALLOC_LIMIT=50000000
@@ -162,6 +161,8 @@ alias gbrmd="git branch --merged | grep -v \* | xargs git branch -D"
 alias ackil="ack --ackrc=$HOME/.ackrc"
 alias be="bundle exec"
 alias tar=gtar
+alias unslash='ruby -e "puts \"$(pbpaste)\"" | pbcopy' # Take my clipboard and unescape quotes (ie. \" -> ")
+alias dm2='rvm use 2.1.1@deal-management-api'
 
 function pkg {
         PKGNAME=$(pkgver $1)
