@@ -158,3 +158,5 @@ fpath=(
   ~/.zsh/functions
   /usr/local/share/zsh/site-functions
 )
+
+alias tmux='TERM=screen-256color-bce tmux'
