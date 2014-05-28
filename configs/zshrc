@@ -208,4 +208,5 @@ bindkey "^R" history-incremental-search-backward
 source ~/.grpnzshrc
 
 export PATH=/usr/local/bin:$PATH
+
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
