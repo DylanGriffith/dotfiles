@@ -151,8 +151,6 @@ nnoremap <f1> :BufExplorer<cr>
 nnoremap <f2> :NERDTreeToggle<cr>
 nnoremap <f3> :TagbarToggle<cr>
 
-"make <c-l> clear the highlight as well as redraw
-
 "map Q to something useful
 noremap Q gq
 
@@ -246,3 +244,5 @@ set clipboard=unnamed
 
 nnoremap <C-Q> :nohls<CR><C-L>
 inoremap <C-Q> <C-O>:nohls<CR>
+
+map <F6> :redraw!<CR>
