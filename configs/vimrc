@@ -203,6 +203,8 @@ endif
 let g:neocomplcache_omni_patterns.ruby = '[^. *\t]\.\w*\|\h\w*::' 
 let g:neocomplcache_omni_patterns.php = '[^. \t]->\h\w*\|\h\w*::'
 
+syntax enable
+set background=dark
 colo solarized
 
 " configure tags - add additional tags here or comment out not-used ones
