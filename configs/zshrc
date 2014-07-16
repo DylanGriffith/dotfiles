@@ -162,7 +162,6 @@ alias ackil="ack --ackrc=$HOME/.ackrc"
 alias be="bundle exec"
 alias tar=gtar
 alias unslash='ruby -e "puts \"$(pbpaste)\"" | pbcopy' # Take my clipboard and unescape quotes (ie. \" -> ")
-alias dm2='rvm use 2.1.1@deal-management-api'
 
 function pkg {
         PKGNAME=$(pkgver $1)
