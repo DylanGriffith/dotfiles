@@ -18,4 +18,5 @@ ln -s "$PWD/configs/rvmrc" ~/.rvmrc
 ln -s "$PWD/configs/tmux.conf" ~/.tmux.conf
 ln -s "$PWD/configs/zshrc" ~/.zshrc
 ln -s "$PWD/configs/todo.cfg" ~/.todo.cfg
+ln -s "$PWD/configs/inputrc" ~/.inputrc
 ln -s "$PWD/tmux_clip.s" ~/.tmux_clip.sh
