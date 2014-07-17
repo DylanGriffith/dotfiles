@@ -162,33 +162,21 @@ alias ackil="ack --ackrc=$HOME/.ackrc"
 alias be="bundle exec"
 alias tar=gtar
 alias unslash='ruby -e "puts \"$(pbpaste)\"" | pbcopy' # Take my clipboard and unescape quotes (ie. \" -> ")
-
-function pkg {
-        PKGNAME=$(pkgver $1)
-        ln -s $1 $PKGNAME
-        gtar -czhvf $PKGNAME.tar.gz $PKGNAME
-        echo "Done. Now run:\npkgup $PKGNAME.tar.gz"
-}
-
-# need to be on the office network or VPN for this to work
-# in case of usage of the http proxy thru a ssh tunnel run (change the port if needed)
-#  export http_proxy="http://localhost:3132"
-function pkgup {
-        curl --upload-file $1 http://config.snc1/package/
-}
-
-function pkgver {
-        echo "$1-$(date +%Y.%m.%d_%H.%M)"
-}
+alias t='todo.sh'
+alias ta='todo.sh add'
+alias tl='todo.sh list'
+alias td='todo.sh do'
 
 function gendate {
         date +%Y.%m.%d_%H.%M
 }
 
-# VI Bindings in Shell
-set -o vi
 bindkey "^R" history-incremental-search-backward
 
 export PATH=/usr/local/bin:$PATH
 
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+
+# VI Bindings in Shell
+KEYTIMEOUT=1
+bindkey -v
