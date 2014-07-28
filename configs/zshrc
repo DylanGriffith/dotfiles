@@ -166,17 +166,18 @@ alias t='todo.sh'
 alias ta='todo.sh add'
 alias tl='todo.sh list'
 alias td='todo.sh do'
+alias stand='todo.sh listall @digi|egrep "^........ x " |tail -5'
+alias sm='smithctl'
 
 function gendate {
         date +%Y.%m.%d_%H.%M
 }
 
-bindkey "^R" history-incremental-search-backward
-
-export PATH=/usr/local/bin:$PATH
+export PATH=/usr/local/bin:$PATH:$HOME/arc/arcanist/bin:~/bin
 
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 
 # VI Bindings in Shell
 KEYTIMEOUT=1
 bindkey -v
+bindkey "^R" history-incremental-search-backward
