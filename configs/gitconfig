@@ -1,6 +1,6 @@
 [user]
     name = Dylan Griffith
-    email = dgriffith@groupon.com
+    email = dyl.griffith@gmail.com
 [core]
     editor = /usr/local/bin/vim
     excludesfile = ~/.gitignore_global
@@ -21,9 +21,9 @@
     fall = fetch --all
     cim = commit -m
     ciam = commit -am
-    tree = log --graph --oneline --decorate --color --all
+    tree = log --graph --abbrev-commit --decorate --date=relative --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)' --all
     tr = log --graph --oneline --decorate --color
-    ln = log --pretty=format:'%Cblue%h %Cred* %C(yellow)%s'
+    ln = log --pretty=format:'%Cblue%h %Cred* %C(yellow)%s %Cblue%an'
 [push]
     default = current
 [credential]
